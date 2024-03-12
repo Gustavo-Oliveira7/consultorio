@@ -1,4 +1,4 @@
-package com.example.consultorio;
+package com.gustavo.consultorio;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
