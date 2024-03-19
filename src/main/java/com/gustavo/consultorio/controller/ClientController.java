@@ -1,9 +1,11 @@
 package com.gustavo.consultorio.controller;
 
 
+import com.gustavo.consultorio.dto.ClientDto;
 import com.gustavo.consultorio.models.entities.Client;
 import com.gustavo.consultorio.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +22,11 @@ public class ClientController {
     }
 
     @PostMapping
-    Client create(@RequestBody Client client) {
-        return clientService.create(client);
+    public ResponseEntity<ClientDto> create(@RequestBody Client client) {
+        Client newClient = clientService.create(client);
+        ClientDto clientDto = new ClientDto(newClient.getCpf(),
+                newClient.getAddress(), newClient.getBirthDate(),
+                newClient.getName());
+        return ResponseEntity.status(201).body(clientDto);
     }
 }
