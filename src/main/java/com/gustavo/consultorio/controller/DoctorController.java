@@ -5,10 +5,9 @@ import com.gustavo.consultorio.dto.DoctorDto;
 import com.gustavo.consultorio.models.entities.Doctor;
 import com.gustavo.consultorio.service.DoctorService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("doctors")
@@ -26,5 +25,11 @@ public class DoctorController {
                 newDoctor.getGender(), newDoctor.getSpecialization()
                 , newDoctor.getBirthDate());
         return ResponseEntity.status(201).body(doctorDto);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<DoctorDto>> getDoctors() {
+        List<DoctorDto> doctors = doctorService.getDoctors();
+        return ResponseEntity.status(200).body(doctors);
     }
 }
