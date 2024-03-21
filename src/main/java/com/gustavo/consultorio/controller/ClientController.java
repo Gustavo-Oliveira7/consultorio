@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("clients")
 public class ClientController {
-    @Autowired
     private ClientService clientService;
 
     public ClientController(ClientService clientService) {
