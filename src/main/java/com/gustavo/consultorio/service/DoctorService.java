@@ -26,7 +26,8 @@ public class DoctorService {
                 doctor.getName(),
                 doctor.getGender(),
                 doctor.getSpecialization(),
-                doctor.getBirthDate()
+                doctor.getBirthDate(),
+                doctor.getCpf()
         )).collect(Collectors.toList());
     }
 }

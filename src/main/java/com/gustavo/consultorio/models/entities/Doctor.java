@@ -13,6 +13,15 @@ public class Doctor {
     @Column(name = "birth_date")
     private String birthDate;
     private String gender;
+    private String cpf;
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
     public String getBirthDate() {
         return birthDate;

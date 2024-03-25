@@ -23,7 +23,7 @@ public class DoctorController {
         Doctor newDoctor = doctorService.create(doctor);
         DoctorDto doctorDto = new DoctorDto(newDoctor.getName(),
                 newDoctor.getGender(), newDoctor.getSpecialization()
-                , newDoctor.getBirthDate());
+                , newDoctor.getBirthDate(), newDoctor.getCpf());
         return ResponseEntity.status(201).body(doctorDto);
     }
 
